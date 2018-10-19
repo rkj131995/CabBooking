@@ -1,0 +1,75 @@
+page-booking-confirmation {
+
+}
+
+.numberCircle {
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+
+    width: 100px;
+    height: 100px;
+    padding: 50px;
+    
+    background: #35A6FF;
+    border: 10px solid #666;
+    color: #fff;
+    text-align: center;
+    
+    font: 100px Arial, sans-serif;
+    font-weight: bold;
+}
+
+.text-on-bottom > .button-inner {
+    flex-direction: column;
+  }
+  b{
+      padding-left: 20%;
+  }
+
+  .check
+  {
+    color: #01BF49; 
+    font-size: 8em;
+    padding-left: 35%;
+    
+  }
+.time
+{
+    font-size: 25px;
+    color: blueviolet;
+
+}
+p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+  }
+  
+  ion-col p
+  {
+    font-size: 1.5em;
+  }
+  ion-app.md [padding] .scroll-content
+  {
+      padding: 5px;
+  }
+  .circle {
+      margin: 10px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 35px;
+    color: #fff;
+    line-height: 75px;
+    text-align: center;
+    background: #000
+    
+  }
+ 
+
+.ico {animation:animatezoom 1s}
+
+@keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
+
+ 

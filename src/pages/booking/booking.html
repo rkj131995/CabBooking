@@ -1,0 +1,132 @@
+<!--
+  Generated template for the BookingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar >
+      <button ion-button style="float: right;" (click)="goBack()">Back
+          <ion-icon name="rewind"></ion-icon>
+        </button>
+    <ion-title>Booking</ion-title>
+  </ion-navbar>
+
+
+</ion-header> -->
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Booking</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <form [formGroup]="myForm" >
+        <fieldset>
+          <legend>Booking Form</legend>
+          <!-- <div class="form-group">
+            <label for="employeeName">Employee Name:</label>
+            <select class="form-control" id="routeSelect">
+              <option *ngFor = 'let name of empData'>{{name.name}}</option>           
+            </select>              
+          </div> -->
+          <div >
+            <!-- <ion-label stacked >Employee Name:</ion-label> -->
+            <!-- <ion-input  ngui-auto-complete
+                   formControlName="employee"
+                   [source]="empData"
+                   [list-formatter]="autocompleListFormatter"
+                   value-property-name="id"
+                   display-property-name="name"
+                   placeholder="Search Your Name"
+                   required
+                   ></ion-input> -->
+                   <ion-item>
+                    <select-searchable
+                    formControlName="employee"
+                        title="Name"
+                        itemValueField="id"
+                        itemTextField="name"
+                        [items]="empData"
+                        [canSearch]="true"
+                        (onChange)="portChange($event)">
+                    </select-searchable>
+                </ion-item>
+
+        </div><br/>
+          <div >
+            <!-- <ion-label stacked for="timeSelect">Departure Time:</ion-label>
+            <select id="timeSelect" 
+            [(ngModel)]="time" formControlName="time"
+            required
+            >
+              <option> 8:30</option>
+              <option>10:00</option>
+            </select>
+          </div> -->
+          <!-- <div class="form-group">
+            <label for="routeSelect">Route Number:</label>
+            <select class="form-control" id="routeSelect">
+                     <option></option>           
+            </select>
+          </div> -->
+          <ion-item>
+            <select-searchable
+            formControlName="time"
+                title="Time"
+                itemValueField="id"
+                itemTextField="name"
+                [items]="timeData"
+                [canSearch]="true"
+                (onChange)="portChange($event)">
+            </select-searchable>
+        </ion-item>
+        </div>
+          <div >
+              <!-- <ion-label stacked for="routeSelect">Route Number:</ion-label>
+              <ion-input  ngui-auto-complete
+              formControlName="route"
+              [source]="routeData"
+              [list-formatter]="autocompleListFormatter"
+              value-property-name="id"
+              display-property-name="name"
+              placeholder="Search Your Route"
+              
+              required
+              ></ion-input> -->
+              <ion-item>
+                <select-searchable
+                formControlName="route"
+                    title="Route Name"
+                    itemValueField="id"
+                    itemTextField="name"
+                    [items]="routeData"
+                    [canSearch]="true"
+                    (onChange)="portChange($event)">
+                </select-searchable>
+            </ion-item>
+            </div>
+
+          <div >
+            <ion-label stacked for="dropPoint">Drop Point:</ion-label>
+            <ion-input  inline id="dropPoint" name = "dropPoint" placeholder="Enter Drop point" [(ngModel)]="dropPoint" formControlName="dropPoint"
+            required></ion-input>
+
+          </div>
+          
+          <!-- <div class="form-group">
+            <label for="exampleInputEmail1">Booking ID generated:</label>
+            <input  class="form-control" id="exampleInputEmail1" aria-describedby="" placeholder="{{bookingId}}">
+          </div>          -->
+          <br>
+
+          <button ion-button full type="submit" data-dismiss="modal" (click)="onSubmit(myForm.value)" [disabled]="myForm.invalid">Book A Cab</button>
+        </fieldset>
+      </form>
+
+</ion-content>

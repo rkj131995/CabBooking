@@ -1,0 +1,58 @@
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="assets/imgs/manh.png">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>
+
+<ion-menu [content]="content" >
+  <ion-header style="background-color: #313131;">
+    <!-- <ion-toolbar color="primary">
+      <ion-title>Menu
+        <button ion-button menuClose round style="float: right;background-color: darkorange;"><ion-icon name="close"  ></ion-icon></button>
+      </ion-title>
+      
+    </ion-toolbar> -->
+    <table style="margin: auto;margin-top: 20px; margin-bottom: 15px;">
+      <tr><td><ion-avatar item-center >
+        <img src="../../assets/imgs/log.jpg" style="    border: 1px solid white;
+        padding: 8px;width: 100px; border-radius: 50%; ">
+      </ion-avatar></td>  </tr>
+      <tr> <td ><b style="color: white;">John doe</b></td></tr>
+      <tr><i style="color: lightgray;">Johndoe@mail.com</i></tr>
+    </table>
+    
+    
+    
+    
+  </ion-header>
+
+  <ion-content style="background-color: #313131;">
+    <ion-list>
+      <button class="mainMenu" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" style="color: lightgray!important;
+      background-color: #313131;" [class.activeHighlight]="checkActive(p)">
+        <!-- <ion-icon name="{{p.icon}}"></ion-icon>  <b style="color: white;">{{p.title}}</b> -->
+        
+        
+        <ion-grid>
+          <ion-row>
+            <ion-col ><ion-icon style="font-size: 21px;" name="{{p.icon}}" ></ion-icon></ion-col>
+            <ion-col style="font-size: 15px; margin-left: -150px;">{{p.title}}</ion-col>
+          </ion-row>         
+        </ion-grid>
+    
+        <!-- <ul style="list-style-type:none; margin:0px; padding:0px">
+          <li style="width:30px; display:table-cell; padding:1px;"><ion-icon style="font-size: 30px;" name="{{p.icon}}"></ion-icon></li>
+          <li style="width:120px; display:table-cell; padding:1px; font-size: 17px;">{{p.title}}</li>
+        </ul> -->
+        
+      </button>
+    </ion-list>
+
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

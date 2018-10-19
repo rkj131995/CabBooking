@@ -1,0 +1,36 @@
+
+
+<ion-header style="background-color: #35A6FF;">
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Manh Transportation <ion-icon name="car"></ion-icon></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding [class.blur]="getBlur()">
+  
+
+
+  <ion-slides *ngIf="details.length"  autoplay="5000" loop="true" speed="500" class="slides" pager="true" style="height: 85%; padding: 2px;">
+    <ion-slide *ngFor="let detail of details" >
+       <img src="{{detail}}" alt="notfound">
+  </ion-slide>
+    
+</ion-slides>
+
+
+</ion-content>
+<ion-fab  right bottom >
+  <button ion-fab name style="background-color: darkorange;" (click)="blur()"> <ion-icon name="help-circle"></ion-icon></button>
+  <ion-fab-list side="left">
+    
+
+    <button onclick="window.location.href='tel:2222222222'" ion-fab><ion-icon name="call"></ion-icon></button>
+
+    <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+    <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+    <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+  </ion-fab-list>
+</ion-fab>

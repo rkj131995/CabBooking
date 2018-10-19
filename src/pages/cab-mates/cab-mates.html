@@ -1,0 +1,51 @@
+<!--
+  Generated template for the CabMatesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+<ion-navbar >
+  
+<ion-title>Cab Mates</ion-title>
+</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <!-- {{cabMates|json}} -->
+
+  <ion-card *ngFor="let mates of cabMates" [style.background-color]="this.bookingId === mates.bookingId ? 'lightgreen' : 'lightblue'">
+  <ion-grid>
+    <ion-card-header>
+        <div>{{mates.employeeName}}</div><br>
+    </ion-card-header>
+      <ion-row align-items-start>
+          <ion-col col-auto><pre>   Route</pre>
+              
+              <div class="circle">{{mates.routeNumber}}</div>
+          </ion-col>
+          
+          <ion-col col-auto>
+            
+            <p><ion-icon name="clock"></ion-icon> 2017-12-29 15:56:47 </p>
+            <p><ion-icon name="pin"></ion-icon> MA Office </p>
+            <p><ion-icon name="flag"></ion-icon> Home  </p>
+          </ion-col>
+          <ion-col col-auto>
+            <div class="time">{{mates.time}}pm</div>
+            <br><br>
+            
+          </ion-col>
+         
+        </ion-row>
+        
+      
+      </ion-grid>
+      
+  </ion-card>
+  <ion-fab  right bottom >
+    <button ion-fab name style="background-color: darkorange;" (click)="goToHome()"> <ion-icon name="home"></ion-icon></button>
+    </ion-fab>
+
+</ion-content>

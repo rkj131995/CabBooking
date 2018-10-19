@@ -1,0 +1,49 @@
+<!--
+  Generated template for the TodaysBookingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Today's Bookings <ion-icon name="book"></ion-icon>   {{todaysDate| date:"dd-MM-yyyy"}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item-group *ngFor="let times of timings; let i = index;">
+      <ion-item-divider style="color: green; height:50px;" [ngClass]="{'section-active': times.open, 'section': !times.open}">
+        <button ion-item (click)="toggleSection(i)" detail-none [ngClass]="{'section-active': times.open, 'section': !times.open}" >
+          <ion-icon item-left name="arrow-dropright-circle" *ngIf="!times.open"></ion-icon>
+          <ion-icon item-left name="arrow-dropdown-circle" *ngIf="times.open" class="w3-spin"></ion-icon>
+          {{ times.name }}
+        </button>
+      </ion-item-divider>
+      <div *ngIf="times.open" class="sublist" >
+      <ion-item-group *ngFor="let route of routes; let j = index;">
+          <ion-item-divider  class="route">
+              <button ion-item  detail-none  (click)="toggleSubSection(i,j)">
+            <ion-icon item-left name="add-circle" ></ion-icon>{{route.name}}
+              </button>
+          </ion-item-divider>
+          <ng-container *ngIf="route.open">  
+      <ion-item  *ngFor="let data of bookingData | bookingFilter: {time: times.name, routeNumber: route.name}">
+           {{data.employeeName}}-{{data.dropPoint}}
+           
+      </ion-item>
+      </ng-container>
+    </ion-item-group>
+  </div>
+  </ion-item-group>
+
+  <ion-fab  right bottom >
+    <button ion-fab name style="background-color: darkorange;" (click)="goToHome()"> <ion-icon name="home"></ion-icon></button>
+    </ion-fab>
+
+</ion-content>

@@ -1,0 +1,35 @@
+
+
+    .section {
+        background: #367C8A;
+        color: white;
+        
+         
+        
+    }
+    .section-active {
+        background: #49ADBB;
+        color: #fff;
+        
+        
+    }
+    .sublist{position:relative;
+        animation:animateleft 0.5s;
+        
+    
+    }
+    .route
+    {
+        background: rgb(166, 214, 201);
+        color: black
+    }
+    @keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
+
+    .w3-spin{animation:w3-spin 0.3s  linear}
+    @keyframes w3-spin{from{transform:rotate(-90deg)} to{transform:rotate(0deg)}}
+    
+
+    
+    
+
+
